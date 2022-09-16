@@ -32,6 +32,7 @@
     <action
         android:id="@+id/action_global_detail"
         app:destination="@id/fragmentFlightDetail"
+        app:popUpTo="@id/fragmentFlightDetail"
         app:popUpToInclusive="true">
 
         <argument
