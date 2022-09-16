@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_home_land"
+    app:startDestination="@id/fragmentPlaceHolder">
+
+    <fragment
+        android:id="@+id/fragmentPlaceHolder"
+        android:name="com.fernando.spacex.PlaceHolderFragment"
+        android:label="PlaceHolderFragment"
+        tools:layout="@layout/fragment_place_holder"/>
+
+    <fragment
+        android:id="@+id/fragmentFlightDetail"
+        android:name="com.fernando.spacex.presentation.ui.detail.FlightDetailFragment"
+        android:label="DetailFragment"
+        tools:layout="@layout/fragment_flight_detail">
+        <argument
+            android:name="isTablet"
+            android:defaultValue="false"
+            app:argType="boolean" />
+
+
+        <argument
+            android:name="flight"
+            android:defaultValue="@null"
+            app:argType="com.fernando.spacex.core.presentation.models.Flight"
+            app:nullable="true" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_global_detail"
+        app:destination="@id/fragmentFlightDetail"
+        app:popUpToInclusive="true">
+
+        <argument
+            android:name="isTablet"
+            android:defaultValue="false"
+            app:argType="boolean" />
+
+        <argument
+            android:name="flight"
+            android:defaultValue="@null"
+            app:argType="com.fernando.spacex.core.presentation.models.Flight"
+            app:nullable="true" />
+
+    </action>
+
+</navigation>

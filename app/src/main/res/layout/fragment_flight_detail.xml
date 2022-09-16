@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="flight"
+            type="com.fernando.spacex.core.presentation.models.Flight" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            tools:context=".presentation.ui.detail.FlightDetailFragment">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                android:background="@color/teal_200"
+                android:elevation="9dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CardView" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/image"
+                paletteImage="@{flight.links.missionPatch}"
+                paletteView="@{header}"
+                android:layout_width="190dp"
+                android:layout_height="190dp"
+                android:layout_marginBottom="20dp"
+                android:scaleType="center"
+                android:translationZ="100dp"
+                app:layout_constraintBottom_toBottomOf="@id/header"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/materialTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:text="@{flight.missionName}"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/header"
+                app:layout_constraintStart_toStartOf="@+id/header"
+                app:layout_constraintTop_toBottomOf="@+id/header" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/materialTextView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:gravity="center"
+                android:text="@{@string/site_name_launch(flight.launchSite.siteName)}"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/header"
+                app:layout_constraintStart_toStartOf="@+id/header"
+                app:layout_constraintTop_toBottomOf="@+id/materialTextView"
+                tools:text="Dummy" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/materialTextView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@{@string/rocket_name(flight.rocket.rocketName)}"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/header"
+                app:layout_constraintStart_toStartOf="@+id/header"
+                app:layout_constraintTop_toBottomOf="@+id/materialTextView2"
+                tools:text="Dummy" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/materialTextView4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:gravity="center"
+                android:text="@{@string/date_updated(flight.updateDateAsString)}"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/header"
+                app:layout_constraintStart_toStartOf="@+id/header"
+                app:layout_constraintTop_toBottomOf="@+id/materialTextView3"
+                tools:text="Dummy" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:gravity="center"
+                android:justificationMode="inter_word"
+                android:text="@{flight.details}"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/header"
+                app:layout_constraintStart_toStartOf="@+id/header"
+                app:layout_constraintTop_toBottomOf="@+id/materialTextView4"
+                tools:text="Dummy" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

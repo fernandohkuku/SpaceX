@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="flight"
+            type="com.fernando.spacex.core.domain.entities.FlightEntity" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvFlight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:cardBackgroundColor="@color/teal_200"
+        app:cardCornerRadius="5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageView"
+                paletteCard="@{cvFlight}"
+                paletteImage="@{flight.links.missionPatch}"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_margin="10dp"
+                android:contentDescription="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:text="@{flight.missionName}"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="@+id/imageView"
+                tools:text="Dummy Title" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvRocketName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="15dp"
+                android:text="@{flight.rocket.rocketName}"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/tvName"
+                tools:text="Dummy Title" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvLaunchSiteName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="15dp"
+                android:text="@{@string/site_name_launch(flight.launchSite.siteName)}"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/tvRocketName"
+                tools:text="Dummy Title" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvLaunchDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="15dp"
+                android:text="@{@string/date_launch(flight.launchDateUnixAsString)}"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/tvLaunchSiteName"
+                tools:text="Dummy Title" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_home"
+    app:startDestination="@id/fragmentHome">
+
+    <fragment
+        android:id="@+id/fragmentHome"
+        android:name="com.fernando.spacex.presentation.ui.home.HomeFragment"
+        android:label="FragmentHome"
+        tools:layout="@layout/fragment_home">
+
+
+        <action
+            android:id="@+id/action_home_to_detail"
+            app:destination="@id/fragmentDetail">
+            <argument
+                android:name="isTablet"
+                android:defaultValue="false"
+                app:argType="boolean" />
+
+            <argument
+                android:name="flight"
+                android:defaultValue="@null"
+                app:argType="com.fernando.spacex.core.presentation.models.Flight"
+                app:nullable="true" />
+
+        </action>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentDetail"
+        android:name="com.fernando.spacex.presentation.ui.detail.FlightDetailFragment"
+        android:label="FragmentDetail"
+        tools:layout="@layout/fragment_flight_detail">
+        <argument
+            android:name="isTablet"
+            android:defaultValue="false"
+            app:argType="boolean" />
+
+        <argument
+            android:name="flight"
+            android:defaultValue="@null"
+            app:argType="com.fernando.spacex.core.presentation.models.Flight"
+            app:nullable="true" />
+
+    </fragment>
+
+</navigation>

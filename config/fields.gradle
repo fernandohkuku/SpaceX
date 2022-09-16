@@ -1,0 +1,5 @@
+ext {
+    configField = [
+            apiUrl: "\"https://api.spacexdata.com\""
+    ]
+}
